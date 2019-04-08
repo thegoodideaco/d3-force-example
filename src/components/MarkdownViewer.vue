@@ -67,8 +67,8 @@ export default {
 
     &::-webkit-scrollbar {
       background: none;
-      height: 15px;
-      width: 10px;
+      height: 7px;
+      width: 7px;
       padding: 5px;
     }
 
@@ -83,10 +83,16 @@ export default {
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #fff;
+      background-color: rgba(#fff, 0.5);
       width: 3px;
       height: 3px;
       margin: 5px;
+      transition: background-color 300ms ease;
+
+      &:hover,
+      &:active {
+        background-color: #fff;
+      }
     }
 
 

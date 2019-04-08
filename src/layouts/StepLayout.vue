@@ -44,7 +44,7 @@ export default {
 <style scoped lang="scss">
 .step-layout {
   display: grid;
-  grid: 100% / minmax(25%, 300px) 1fr;
+  grid: 100% / minmax(30%, 300px) 1fr;
 }
 
 .info {
