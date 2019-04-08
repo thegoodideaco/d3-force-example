@@ -1,0 +1,33 @@
+$color: rgba(#fff, 0.25);
+
+.vb {
+  
+  > .vb-dragger {
+    z-index: 5;
+    width: 17px;
+    padding: 15px 0;
+    right: 0;
+    > .vb-dragger-styler {
+      backface-visibility: hidden;
+      transform: rotate3d(0, 0, 0, 0);
+      transition: background-color 100ms ease-out, margin 100ms ease-out, height 100ms ease-out;
+      background-color: rgba($color, 0.05);
+      width: 3px;
+      margin: auto;
+      height: 100%;
+      
+      border-radius: 20px;
+      display: block;
+    }
+  }
+  &.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
+    background-color: $color;
+  }
+  > .vb-dragger:hover > .vb-dragger-styler, &.vb-dragging > .vb-dragger > .vb-dragger-styler {
+    background-color: $color;
+   
+  }
+  &.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
+    background-color: $color;
+  }
+}

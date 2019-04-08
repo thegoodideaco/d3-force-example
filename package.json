@@ -5,25 +5,44 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "npm run serve -- --open"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.6",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "d3": "^5.9.2",
+    "highlight.js": "^9.15.6",
+    "marked": "^0.6.1",
+    "normalize.css": "^8.0.1",
+    "pixi.js": "^4.8.7",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.2",
+    "vuebar": "0.0.20",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@types/d3": "^5.7.2",
+    "@types/highlight.js": "^9.12.3",
+    "@types/marked": "^0.6.5",
+    "@types/pixi.js": "^4.8.6",
+    "@types/webpack": "^4.4.27",
+    "@types/webpack-chain": "^5.0.1",
+    "@vue/babel-preset-app": "^3.5.5",
+    "@vue/cli": "^3.5.5",
+    "@vue/cli-plugin-eslint": "^3.5.1",
+    "@vue/cli-service": "^3.5.3",
+    "@vue/cli-upgrade": "^3.5.1",
     "@vue/eslint-config-prettier": "^4.0.1",
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2",
     "fibers": "^3.1.1",
-    "sass": "^1.17.2",
+    "node-sass": "^4.11.0",
+    "raw-loader": "^2.0.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-cli-plugin-axios": "0.0.4",
+    "vue-template-compiler": "^2.6.10"
   }
 }
