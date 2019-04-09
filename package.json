@@ -11,11 +11,11 @@
   "dependencies": {
     "d3": "^5.9.2",
     "highlight.js": "^9.15.6",
-    "marked": "^0.6.1",
+    "marked": "^0.6.2",
     "normalize.css": "^8.0.1",
     "pixi.js": "^4.8.7",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.2",
+    "vue-router": "^3.0.3",
     "vuebar": "0.0.20",
     "vuex": "^3.1.0"
   },
@@ -27,7 +27,7 @@
     "@types/marked": "^0.6.5",
     "@types/pixi.js": "^4.8.6",
     "@types/webpack": "^4.4.27",
-    "@types/webpack-chain": "^5.0.1",
+    "@types/webpack-chain": "^5.2.0",
     "@vue/babel-preset-app": "^3.5.5",
     "@vue/cli": "^3.5.5",
     "@vue/cli-plugin-eslint": "^3.5.1",
