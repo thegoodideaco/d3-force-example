@@ -12,7 +12,7 @@ This approach is very different than canvas or webgl, however is the one that ta
 
 ## `Cons`
 
-- Rendering Performance
+- Rendering Performance with large datasets
 
 ---
 
@@ -37,7 +37,8 @@ this.links = links
 this.nodes = nodes.map((v, index) => ({
   ...v,
 
-  // We assign these other values so that they can be observed by Vue
+  // We assign these other values so that
+  // they can be observed by Vue
   index,
   x: 0,
   y: 0,

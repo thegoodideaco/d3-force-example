@@ -5,6 +5,11 @@
 
     <!-- Text -->
     <h4>{{ title }}</h4>
+
+    <div v-if="$slots.default"
+         class="link-container">
+      <slot />
+    </div>
   </div>
 </template>
 

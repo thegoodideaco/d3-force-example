@@ -2,6 +2,10 @@
   <step-layout class="template-mode"
                title="Template Approach"
                :readme="readme">
+    <template #links>
+      Hello there
+    </template>
+
     <!-- Graph -->
     <template-graph />
   </step-layout>

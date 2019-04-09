@@ -5,6 +5,8 @@
     @contextmenu.prevent
     @mousewheel="test"
     @mousedown="dragged"
+    @touchstart="dragged"
+    @touchend="dragended"
     @mouseup="dragended">
     <canvas ref="canvas" />
   </div>
@@ -28,7 +30,10 @@ import {
   scaleSequential,
   interpolateSinebow,
   rgb,
-  interpolateSpectral
+  interpolateSpectral,
+  interpolateCubehelix,
+  interpolateViridis,
+  interpolateRainbow
 } from 'd3'
 export default {
   data() {
@@ -36,7 +41,7 @@ export default {
       dragging:   false,
       width:      null,
       height:     null,
-      zoom:       40,
+      zoom:       10,
       colorScale: null
     }
   },
@@ -110,7 +115,7 @@ export default {
 
     this.pixiRender.stage.addChild(container)
 
-    this.colorScale = scaleSequential(interpolateSpectral).domain([0, 1000])
+    this.colorScale = scaleSequential(interpolateRainbow).domain([0, 1000])
 
     this.nodes = range(1000).map((k, i) => {
       /** @type {PIXI.Sprite} */
@@ -143,22 +148,21 @@ export default {
     }))
 
     this.simulation = forceSimulation(this.nodes)
-      .force('charge', forceManyBody().strength(-15))
+      .force('charge', forceManyBody().strength(-60))
       .force(
         'link',
         forceLink(this.links)
           .distance(this.zoom)
-          .strength(0.6)
       )
       .force(
         'radial',
-        forceRadial(height / 1.4, width / 2, height / 2).strength(0.8)
+        forceRadial(height / 1.4, width / 2, height / 2).strength(0.51)
       )
       .force('mouse', forceRadial(100, width / 2, height / 2).strength(1))
       .force('center', forceCenter(width / 2, height / 2))
 
-      .force('x', forceX())
-      .force('y', forceY())
+      // .force('x', forceX())
+      // .force('y', forceY())
       .on('tick', this.ticked)
       .alphaDecay(0.16)
       .alpha(0.5)
@@ -167,6 +171,7 @@ export default {
 
     window.addEventListener('resize', this.onResize)
     window.addEventListener('mousemove', this.updateMouse)
+    window.addEventListener('touchmove', this.updateTouch)
   },
 
   methods: {
@@ -265,6 +270,20 @@ export default {
     /** @param {MouseEvent} e */
     updateMouse(e) {
       const { x, y } = e
+
+      /** @type {d3.ForceRadial} */
+      const force = this.simulation.force('mouse')
+
+      force.x(x).y(y)
+    },
+
+
+    /** @param {TouchEvent} e */
+    updateTouch(e) {
+      const {
+        pageX: x,
+        pageY: y
+      } = e.touches[0]
 
       /** @type {d3.ForceRadial} */
       const force = this.simulation.force('mouse')

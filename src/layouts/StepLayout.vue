@@ -2,7 +2,9 @@
   <!-- Step Layout Wrapper -->
   <div class="step-layout">
     <aside class="info">
-      <info-title :title="title" />
+      <info-title :title="title">
+        <slot name="links" />
+      </info-title>
 
       <markdown :value="readme" />
     </aside>
@@ -48,7 +50,7 @@ export default {
 }
 
 .info {
-  background-color: #000;
+  background-color: #18242b;
   min-width: 400px;
   display: grid;
   grid: auto 1fr / 100%;
