@@ -11,6 +11,7 @@ import '@/assets/sass/style.scss'
 import StepLayout from '@/layouts/StepLayout.vue'
 
 import Vuebar from 'vuebar'
+import { particles } from 'pixi.js'
 Vue.use(Vuebar)
 
 Vue.config.productionTip = false
@@ -25,3 +26,11 @@ new Vue({
 }).$mount('#app')
 
 window.d3 = require('d3')
+
+
+export class Testing extends particles.ParticleContainer {
+  constructor(){
+    super()
+    console.log('ok then')
+  }
+}

@@ -50,6 +50,13 @@ export default {
   column-gap: 10px;
   text-transform: uppercase;
 
+  @media screen and (max-width: 1100px) {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #18242b;
+  }
+
   > div {
     margin: 0;
     font-size: 22px;
@@ -73,19 +80,25 @@ export default {
 }
 
 .logo-title {
-  display: grid;
+  display: flex;
   grid: 100% / max-content 1fr;
-  height: 100%;
+  width: 100%;
+  height: 25px;
   column-gap: 10px;
   align-items: center;
 
   > * {
     margin: 0;
+
+    &:first-child {
+      margin-right: 10px;
+    }
   }
 }
 
 .link-container {
   display: grid;
+
   grid-auto-flow: column;
   column-gap: 20px;
   align-items: center;
