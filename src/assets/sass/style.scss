@@ -1,5 +1,3 @@
-
-
 @import './_markdown.scss';
 @import './_vuebar';
 
@@ -14,7 +12,6 @@ html {
 }
 
 body {
-  
   background-color: rgb(11, 93, 107);
   background-image: radial-gradient(#2b414f, #20313a);
   color: #fff;
@@ -25,8 +22,30 @@ main.main-container {
   overflow: hidden;
   // height: 100%;
   // padding: 15px;
-}
 
+  background-color: rgb(11, 93, 107);
+  background-image: radial-gradient(#2b414f, #20313a);
+
+  transition: all 500ms linear;
+
+  .template & {
+    $color: #1b2b35;
+    background-color: $color;
+    background-image: radial-gradient($color, darken($color, 10));
+  }
+
+  .canvas & {
+    $color: #3d243d;
+    background-color: $color;
+    background-image: radial-gradient($color, darken($color, 10));
+  }
+
+  .webgl & {
+    $color: #013508;
+    background-color: $color;
+    background-image: radial-gradient($color, darken($color, 10));
+  }
+}
 
 .gpu {
   transform: translateZ(0);

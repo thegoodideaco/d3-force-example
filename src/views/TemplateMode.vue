@@ -2,8 +2,14 @@
   <step-layout class="template-mode"
                title="Template Approach"
                :readme="readme">
+    <!-- Links -->
     <template #links>
-      Hello there
+      <router-link to="canvas">
+        Canvas
+      </router-link>
+      <router-link to="webgl">
+        WebGL
+      </router-link>
     </template>
 
     <!-- Graph -->

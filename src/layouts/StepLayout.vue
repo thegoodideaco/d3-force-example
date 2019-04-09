@@ -1,14 +1,18 @@
 <template>
   <!-- Step Layout Wrapper -->
   <div class="step-layout">
+    <!-- Info -->
     <aside class="info">
+      <!-- Title -->
       <info-title :title="title">
+        <!-- Title links are inserted here -->
         <slot name="links" />
       </info-title>
 
       <markdown :value="readme" />
     </aside>
 
+    <!-- Content -->
     <div class="content-container">
       <slot>
         Content goes here

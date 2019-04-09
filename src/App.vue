@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app"
+       :class="[$route.name]">
     <main class="main-container">
       <router-view class="fill" />
     </main>
@@ -15,6 +16,4 @@
   display: grid;
   grid: 100% / 100%;
 }
-
-
 </style>

@@ -1,7 +1,8 @@
 <template>
   <!-- Simple Splash page -->
   <div class="home">
-    <background class="abs" />
+    <background v-if="loaded"
+                class="abs" />
 
     <div class="rotator"
          :style="rotateStyle">
@@ -39,7 +40,8 @@ export default {
         x: null,
         y: null
       },
-      rotateStyle: null
+      rotateStyle: null,
+      loaded:      false
     }
   },
   mounted() {
@@ -47,6 +49,8 @@ export default {
       innerWidth: width,
       innerHeight: height
     } = window
+
+    this.$nextTick(() => this.loaded = true)
 
     const maxAngle = 10
 
