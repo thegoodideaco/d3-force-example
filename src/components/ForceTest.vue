@@ -89,6 +89,8 @@ export default {
 
     pixi.utils.skipHello()
 
+
+
     this.pixiRender = new pixi.Application({
       view: this.$refs.canvas,
       // powerPreference: 'high-performance',
@@ -97,10 +99,19 @@ export default {
       height
     })
 
-    this.pixiRender.renderer.backgroundColor = parseInt('2b414f', 16)
-    this.pixiRender.renderer.options.antialias = false
-    this.pixiRender.renderer.options.preserveDrawingBuffer = true
-    this.pixiRender.renderer.options.roundPixels = true
+
+    /** @type {PIXI.RendererOptions} */
+    const options = {
+      antialias:             false,
+      preserveDrawingBuffer: true,
+      roundPixels:           false,
+      backgroundColor:       parseInt('2b414f', 16),
+      powerPreference:       'high-performance',
+      resolution:            devicePixelRatio,
+      transparent:           true
+    }
+
+    Object.assign(this.pixiRender.renderer.options, options)
     // this.pixiRender.renderer.options.resolution = window.devicePixelRatio
 
     /** @type {PIXI.Sprite} */
@@ -123,7 +134,7 @@ export default {
     container.interactiveChildren = false
     container.blendMode = pixi.BLEND_MODES.OVERLAY
 
-    const particleAmount = pixi.utils.isMobile.any ? 500 : 1000
+    const particleAmount = pixi.utils.isMobile.any ? 500 : 3000
 
     this.pixiRender.stage.addChild(container)
 
