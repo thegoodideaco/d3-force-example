@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import './plugins/axios'
 import App from './App.vue'
@@ -16,10 +15,7 @@ Vue.use(Vuebar)
 
 Vue.config.productionTip = false
 
-
 Vue.component('StepLayout', StepLayout)
-
-
 
 new Vue({
   router,
@@ -27,6 +23,5 @@ new Vue({
 
   render: h => h(App)
 }).$mount('#app')
-
 
 window.d3 = require('d3')

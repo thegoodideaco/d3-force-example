@@ -42,7 +42,8 @@ export default {
       width:      null,
       height:     null,
       zoom:       10,
-      colorScale: null
+      colorScale: null,
+      pr:         devicePixelRatio
     }
   },
   computed: {
@@ -84,18 +85,23 @@ export default {
   mounted() {
     const { width, height } = this.$el.getBoundingClientRect()
 
+    const r = devicePixelRatio
+
     pixi.utils.skipHello()
 
     this.pixiRender = new pixi.Application({
-      view:      this.$refs.canvas,
+      view: this.$refs.canvas,
       // powerPreference: 'high-performance',
-      forceFXAA: true,
+      // forceFXAA: true,
       width,
       height
     })
 
     this.pixiRender.renderer.backgroundColor = parseInt('2b414f', 16)
     this.pixiRender.renderer.options.antialias = false
+    this.pixiRender.renderer.options.preserveDrawingBuffer = true
+    this.pixiRender.renderer.options.roundPixels = true
+    // this.pixiRender.renderer.options.resolution = window.devicePixelRatio
 
     /** @type {PIXI.Sprite} */
     const bg = new pixi.Sprite.fromImage('/bg.png')
@@ -113,11 +119,17 @@ export default {
 
     const container = new pixi.particles.ParticleContainer(10000)
 
+    container.interactive = false
+    container.interactiveChildren = false
+    container.blendMode = pixi.BLEND_MODES.OVERLAY
+
+    const particleAmount = pixi.utils.isMobile.any ? 500 : 1000
+
     this.pixiRender.stage.addChild(container)
 
-    this.colorScale = scaleSequential(interpolateRainbow).domain([0, 1000])
+    this.colorScale = scaleSequential(interpolateRainbow).domain([0, particleAmount])
 
-    this.nodes = range(1000).map((k, i) => {
+    this.nodes = range(particleAmount).map((k, i) => {
       /** @type {PIXI.Sprite} */
       const spr = new pixi.Sprite.fromImage('/test.png')
       container.addChild(spr)
